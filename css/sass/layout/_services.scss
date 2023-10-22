@@ -1,0 +1,23 @@
+@use "../helpes/variables" as *;
+.services{
+    background-color: #F8F8FA;
+    .container{
+        
+        .box{
+            padding: 20px;
+            background-color: white;
+            i,svg,img{
+                height: 2rem;
+            }
+            h3{
+                
+                font-size: 11px;
+            }
+            p{
+                font-size: 15px;
+                color: #b3b3b3;
+                // text-align: center;
+            }
+        }
+    }
+}

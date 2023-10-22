@@ -1,0 +1,24 @@
+@use "../helpes/mixins" as *;
+@use "../helpes/variables" as *;
+
+* {
+  @include prefixer(box-sizing, border-box, ("webkit", "moz", "o", "ms"));
+}
+// .container {
+//   width: 1200px;
+//   margin: auto;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   position: relative;
+//   @media #{$minSmall} {
+//     width: 750px;
+//   }
+//   @media #{$minMedium} {
+//     width: 970px;
+//   }
+//   @media #{$minLarge} {
+//     width: 1170px;
+//   }
+// }
+
+

@@ -1,0 +1,67 @@
+body {
+  font-family: "Libre Baskerville", serif;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero #carouselExampleCaptions.carousel .carousel-inner .carousel-item {
+  height: calc(100vh - 64px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hero #carouselExampleCaptions.carousel .carousel-inner .carousel-item:nth-child(1) {
+  background-image: url(../imges/hero_bg_5.jpg);
+}
+.hero #carouselExampleCaptions.carousel .carousel-inner .carousel-item:nth-child(2) {
+  background-image: url(../imges/hero_bg_3.jpg);
+}
+.hero #carouselExampleCaptions.carousel .carousel-inner .carousel-item:nth-child(3) {
+  background-image: url(../imges/hero_bg_4.jpg);
+}
+.hero #carouselExampleCaptions.carousel .carousel-inner .carousel-item .carousel-caption {
+  top: 30% !important;
+  width: 50%;
+  margin: auto;
+}
+.hero #carouselExampleCaptions.carousel .carousel-inner .carousel-item .carousel-caption h5 {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.hero #carouselExampleCaptions.carousel .carousel-inner .carousel-item .carousel-caption button:hover {
+  background-color: black;
+  color: white !important;
+}
+.services {
+  background-color: #F8F8FA;
+}
+.services .container .box {
+  padding: 20px;
+  background-color: white;
+}
+.services .container .box i, .services .container .box svg, .services .container .box img {
+  height: 2rem;
+}
+.services .container .box h3 {
+  font-size: 11px;
+}
+.services .container .box p {
+  font-size: 15px;
+  color: #b3b3b3;
+}
+
+* {
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* start slider*//*# sourceMappingURL=homepage.css.map */
