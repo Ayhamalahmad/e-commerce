@@ -1,0 +1,28 @@
+@use "../helpes/variables" as *;
+.deal-hero{
+    // position: relative;
+    height: calc(100vh - 90px);
+    background-image: url(../imges/hero_bg_1.jpg);
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .deal-contents{
+        background: #ffffff;
+        @media #{$maxSmall} {
+            width: auto !important;
+        }
+        .subtitle{}
+        .title{}
+        p{}
+        a{
+            color: white !important;
+            background-color: black;
+            width: fit-content;
+            &:focus{
+                background-color: black;
+                color: white !important;
+            }
+        }
+    }
+}

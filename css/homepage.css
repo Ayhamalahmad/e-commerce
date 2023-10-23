@@ -58,6 +58,46 @@ a {
   color: #b3b3b3;
 }
 
+#products .container .product .image .badge {
+  background-color: red;
+  padding: 5px 10px;
+}
+#products .container .product .product-info .product-title {
+  font-size: 13px;
+  color: #000000;
+}
+#products .container .product .product-info .product-price {
+  font-size: 13px;
+  color: #333;
+}
+
+.deal-hero {
+  height: calc(100vh - 90px);
+  background-image: url(../imges/hero_bg_1.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.deal-hero .deal-contents {
+  background: #ffffff;
+}
+@media (max-width:991px) {
+  .deal-hero .deal-contents {
+    width: auto !important;
+  }
+}
+.deal-hero .deal-contents a {
+  color: white !important;
+  background-color: black;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.deal-hero .deal-contents a:focus {
+  background-color: black;
+  color: white !important;
+}
+
 * {
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
