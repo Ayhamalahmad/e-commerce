@@ -1,0 +1,44 @@
+@use "../helpes/variables" as *;
+#Popular-Items{
+    .container{
+        .popular-title-btns{
+            // display: flex;
+            .title{
+            }
+            .btns{
+            // background-color: red;    
+            // width: 20%;
+            .cBtn{
+                font-size: 30px;
+                border-width: 0;
+                color: #ccc;
+                transition: all .3s;
+                &:hover{
+                    color: black;
+                }
+             &:focus{
+                outline: none;
+                border: none;
+             }
+            }
+            }
+        }
+
+
+        // gallery
+        .gallery{
+            overflow-x: scroll;
+        }
+        // carousel-inner
+        .carousel-inner{
+            @media #{$minSmall} {
+                display: flex;
+            }
+            .carousel-item{
+                display: block;
+                margin-right: 0;
+                flex: 0 0 calc(100% / 3);
+            }
+        }
+    }
+}

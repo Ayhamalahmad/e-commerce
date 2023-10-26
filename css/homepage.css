@@ -98,6 +98,33 @@ a {
   color: white !important;
 }
 
+#Popular-Items .container .popular-title-btns .btns .cBtn {
+  font-size: 30px;
+  border-width: 0;
+  color: #ccc;
+  transition: all 0.3s;
+}
+#Popular-Items .container .popular-title-btns .btns .cBtn:hover {
+  color: black;
+}
+#Popular-Items .container .popular-title-btns .btns .cBtn:focus {
+  outline: none;
+  border: none;
+}
+#Popular-Items .container .gallery {
+  overflow-x: scroll;
+}
+@media (min-width:768px) {
+  #Popular-Items .container .carousel-inner {
+    display: flex;
+  }
+}
+#Popular-Items .container .carousel-inner .carousel-item {
+  display: block;
+  margin-right: 0;
+  flex: 0 0 33.3333333333%;
+}
+
 * {
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
