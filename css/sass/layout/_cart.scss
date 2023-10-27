@@ -1,0 +1,84 @@
+@use "../helpes/variables" as *;
+.page-heading {
+  .container {
+    .row {
+      height: 40vh;
+      min-height: 200px;
+      a {
+        color: #0fb78d;
+        strong {
+          color: unset;
+        }
+      }
+    }
+  }
+}
+// items
+.items {
+  padding: 100px 0;
+  position: relative;
+  .container {
+    .gallery {
+      overflow-x: scroll;
+      @media #{$minLarge} {
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      table {
+        thead {
+          tr {
+            th {
+            }
+          }
+        }
+
+        tbody {
+          vertical-align: middle !important;
+          tr {
+            th {
+              width: calc(100% / 6);
+
+              img {
+                width: 100%;
+              }
+              button {
+              }
+
+              div {
+                button {
+                }
+                input {
+                }
+              }
+            }
+            td {
+              width: calc(100% / 6);
+              .increase-selected-items-decrease {
+                // display: flex;
+                // align-items: center;
+                gap: 5px;
+                div {
+                  input {
+                    width: 100% !important;
+                  }
+                  button {
+                    width: 100% !important;
+                  }
+                }
+                button,
+                input {
+                }
+                button {
+                }
+                input {
+                  width: 20% !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

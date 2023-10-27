@@ -6,8 +6,8 @@ const productCont = document.querySelector("#products > .container");
 //   .then((res) => res.json())
 //   .then((json) => {
 //     console.log(json);
-//     products.push(json); 
-    
+//     products.push(json);
+
 // const createWeatherWeekly = (element) => {
 //     return `
 //     <div class="product col-6 col-sm-6 col-md-6 mb-4 col-lg-4 px-2">
@@ -25,7 +25,6 @@ const productCont = document.querySelector("#products > .container");
 //   json?.forEach((element) => {
 //     productCont.insertAdjacentHTML("beforeend", createWeatherWeekly(element));
 //   });
-    
+
 //   });
 // console.log(products);
-

@@ -1,1 +1,12 @@
 @use "../helpes/variables" as *;
+#footer{
+    padding: 100px 0 70px 0;
+    .container{
+        .widget{
+            margin-bottom: 40px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+    }
+}

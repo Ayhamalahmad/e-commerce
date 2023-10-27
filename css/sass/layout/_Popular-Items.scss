@@ -28,16 +28,21 @@
         // gallery
         .gallery{
             overflow-x: scroll;
-        }
-        // carousel-inner
-        .carousel-inner{
-            @media #{$minSmall} {
-                display: flex;
+            &::-webkit-scrollbar{
+                display: none;
             }
-            .carousel-item{
-                display: block;
-                margin-right: 0;
-                flex: 0 0 calc(100% / 3);
+            .wrappar{
+                // display: flex;
+                gap: 10px;
+                flex-wrap: nowrap;
+                .item{
+                    display: block;
+                    margin-right: 0;
+                    flex: 0 0 calc(100% / 3);
+                    img{
+                        width: 100%;
+                    }
+                }
             }
         }
     }

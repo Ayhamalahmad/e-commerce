@@ -1,23 +1,30 @@
 @use "../helpes/variables" as *;
-.services{
-    background-color: #F8F8FA;
-    .container{
-        
-        .box{
-            padding: 20px;
-            background-color: white;
-            i,svg,img{
-                height: 2rem;
-            }
-            h3{
-                
-                font-size: 11px;
-            }
-            p{
-                font-size: 15px;
-                color: #b3b3b3;
-                // text-align: center;
-            }
+.services {
+  background-color: #f8f8fa;
+  .container {
+    .features {
+        @media #{$minMedium} {
+            flex-wrap: nowrap !important;
         }
+      .feature {
+        text-align: center;
+        background: #ffffff;
+        padding: 20px;
+        i,
+        svg,
+        img {
+          width: 2rem;
+          height: 2rem;
+        }
+        h3 {
+          font-size: 11px;
+        }
+        p {
+          font-size: 15px;
+          color: #b3b3b3;
+          // text-align: center;
+        }
+      }
     }
+  }
 }

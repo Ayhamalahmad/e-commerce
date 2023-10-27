@@ -3,6 +3,7 @@
 
 * {
   @include prefixer(box-sizing, border-box, ("webkit", "moz", "o", "ms"));
+  scroll-behavior: smooth;
 }
 // .container {
 //   width: 1200px;

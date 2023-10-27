@@ -1,4 +1,29 @@
 @use "../helpes/variables" as *;
-.navbar{
-   
+.navbar {
+  .shopping-user-search {
+    margin: unset;
+    font-size: 20px;
+    li {
+      .shopping-item-in-cart {
+        position: relative;
+        i,
+        svg,
+        img {
+        }
+        .item-in-cart {
+          position: absolute;
+          font-size: 10px;
+          line-height: 20px;
+          width: 20px;
+          height: 20px;
+          right: -18px;
+          top: -2px;
+          border-radius: 50%;
+          background: #000000;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
