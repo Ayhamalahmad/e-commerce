@@ -74,6 +74,16 @@ a {
 .items .container .gallery table tbody tr td .increase-selected-items-decrease {
   gap: 5px;
 }
+@media (max-width:767px) {
+  .items .container .gallery table tbody tr td .increase-selected-items-decrease {
+    flex-direction: column;
+  }
+}
+@media (max-width:767px) {
+  .items .container .gallery table tbody tr td .increase-selected-items-decrease .seleted-num {
+    order: 1 !important;
+  }
+}
 .items .container .gallery table tbody tr td .increase-selected-items-decrease div input {
   width: 100% !important;
 }

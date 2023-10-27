@@ -1,5 +1,8 @@
 @use "../helpes/variables" as *;
 .page-heading {
+    // background-image: url('../imges/cart-bg.jpg');
+    // background-position: center;
+    // background-repeat: no-repeat;
   .container {
     .row {
       height: 40vh;
@@ -54,13 +57,21 @@
             }
             td {
               width: calc(100% / 6);
+
               .increase-selected-items-decrease {
-                // display: flex;
-                // align-items: center;
                 gap: 5px;
+                @media #{$maxMobile} {
+                    flex-direction: column;
+                }
+                .seleted-num{
+                    @media #{$maxMobile} {
+                        order: 1 !important;
+                    }
+                }
                 div {
                   input {
                     width: 100% !important;
+                  
                   }
                   button {
                     width: 100% !important;
