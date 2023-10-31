@@ -30,7 +30,7 @@ const cartItem = (e) => {
         </div>
       </div>
     </td>
-    <td >$<span class="total-item">49.00</span></td>
+    <td >£<span class="total-item">49.00</span></td>
     <td><button id="${e.id}"  class="delete-item btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
   </tr>`;
 };
@@ -67,6 +67,7 @@ function handleQuantityChange(action, input) {
     input.value = value + 1;
   }
   handleTotal();
+  sumTotals();
 }
 
 decreaseBtns.forEach((btn) => {
@@ -99,5 +100,20 @@ let inputs = document.querySelectorAll(".selected-items");
 inputs.forEach((input)=>{
   input.addEventListener("change",()=>{
     handleTotal();
+    sumTotals();
   })
 })
+
+function sumTotals(){
+  const subtotal=document.querySelector(".subtotal");
+  const total=document.querySelector(".total");
+  let totalSum =0;
+  totalItems.forEach((total,index)=>{
+    totalSum += Number(total.textContent);
+  })
+  console.log(totalSum);
+  subtotal.textContent=`£${totalSum}`
+  total.textContent=`£${totalSum}`
+
+}
+sumTotals();
