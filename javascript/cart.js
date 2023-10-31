@@ -1,8 +1,10 @@
-import { storage } from "./elementsHandler.js";
-// selected Items
-export let selectedItems = storage.getStorage("product");
+// console.clear();
+// Import the storage module from the elementsHandler.js file
+import { storage,uniqueItem,cartItems } from "./elementsHandler.js";
+// Retrieve selected items from local storage
+// export let selectedItems = storage.getStorage("product");
 
-//
+// Define a template for a cart item 
 const cartItem = (e) => {
   return `
     <tr>
@@ -30,24 +32,26 @@ const cartItem = (e) => {
         </div>
       </div>
     </td>
-    <td >£<span class="total-item">49.00</span></td>
+    <td class="total-item">${e.product_price}</td>
     <td><button id="${e.id}"  class="delete-item btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
   </tr>`;
 };
+// Get a reference to the table body element
 const tbody = document.querySelector("tbody");
-console.log(tbody);
-const uniqueItems = selectedItems.reduce((acc, currentItem) => {
-  const isDuplicate = acc.some((item) => item.id === currentItem.id);
-  if (!isDuplicate) {
-    acc.push(currentItem);
-  }
-  return acc;
-}, []);
-uniqueItems.forEach((element) => {
+// Remove duplicates from the selected items
+// export const uniqueItems = selectedItems.reduce((acc, currentItem) => {
+//   const isDuplicate = acc.some((item) => item.id === currentItem.id);
+//   if (!isDuplicate) {
+//     acc.push(currentItem);
+//   }
+//   return acc;
+// }, []);
+// Insert cart items into the table
+uniqueItem.forEach((element) => {
   console.log(element);
   tbody?.insertAdjacentHTML("beforeend", cartItem(element));
 });
-// delete Item
+// Delete items from the cart
 let deleteItem = document.querySelectorAll(".delete-item");
 deleteItem.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -56,7 +60,7 @@ deleteItem.forEach((btn) => {
     storage.removeFromArray(btn.id);
   });
 });
-// decrease  and increase
+// Handle quantity change (increase and decrease)
 const decreaseBtns = document.querySelectorAll(".decrease");
 const increaseBtns = document.querySelectorAll(".increase");
 function handleQuantityChange(action, input) {
@@ -83,19 +87,20 @@ increaseBtns.forEach((btn) => {
     handleQuantityChange("increase", input);
   });
 });
-
+// Get references to total item and product price elements
 const totalItems = document.querySelectorAll(".total-item");
 const product_prices = document.querySelectorAll(".product_price");
+// Update total prices
 function handleTotal() {
   product_prices.forEach((price,index) => {
     let originalText = `${price.textContent}`;
     let textWithoutCurrency = originalText.replace(/£/g, "");
     let input = document.querySelectorAll(".selected-items")[index];
     const total = input.value * Number(textWithoutCurrency);
-    totalItems[index].textContent=total;
+    totalItems[index].textContent=`£${total}`;
   });
 }
-
+// Get references to selected item inputs
 let inputs = document.querySelectorAll(".selected-items");
 inputs.forEach((input)=>{
   input.addEventListener("change",()=>{
@@ -103,17 +108,26 @@ inputs.forEach((input)=>{
     sumTotals();
   })
 })
-
+// Calculate and display the subtotal and total
 function sumTotals(){
   const subtotal=document.querySelector(".subtotal");
   const total=document.querySelector(".total");
   let totalSum =0;
   totalItems.forEach((total,index)=>{
-    totalSum += Number(total.textContent);
+    let originalText = `${total.textContent}`;
+    let textWithoutCurrency = originalText.replace(/£/g, "");
+    totalSum += Number(textWithoutCurrency);
   })
-  console.log(totalSum);
-  subtotal.textContent=`£${totalSum}`
-  total.textContent=`£${totalSum}`
+  // console.log("totalSum",totalSum);
+  if(subtotal,total){
+    subtotal.textContent=`£${totalSum}`
+    total.textContent=`£${totalSum}`
+  }
 
 }
+// Initialize the total calculation
 sumTotals();
+// // Display the number of unique items in the cart
+  const itemInCart =document.querySelector(".item-in-cart");
+    itemInCart.textContent=uniqueItem.length;
+// cartItems();

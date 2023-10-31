@@ -1,9 +1,10 @@
 console.clear();
 import { servicesData, productsData } from "./data.js";
-import { selectedItems } from "./cart.js";
+// import { selectedItems } from "./cart.js";
 const features = document.querySelector(".features");
 const products = document.querySelector(".products");
 const tbody = document.querySelector("tbody");
+let uniqueItem = [];
 const cartItem = (e) => {
   return `
     <tr>
@@ -38,6 +39,8 @@ const cartItem = (e) => {
 // storage
 export class storage {
   static addToDStorage(product) {
+    // duplicates();
+    // cartItems();
     let storage = localStorage.setItem("product", JSON.stringify(product));
     return storage;
   }
@@ -49,13 +52,25 @@ export class storage {
     return storage;
   }
   static removeFromArray(id) {
-    let selectedItemsNew = selectedItems.filter((item) => item.id !== id);
-    storage.addToDStorage(selectedItemsNew);
-    console.log("selectedItemsNew", selectedItemsNew);
-    localStorage.removeItem(selectedItemsNew);
-    console.log(selectedItemsNew);
+    let selectedItems = storage.getStorage("product");
+    duplicates();
+    // cartItems();
+    const indexToDelete = selectedItems.findIndex((item) => item.id === id);
+    if (indexToDelete !== -1) {
+      selectedItems.splice(indexToDelete, 1);
+      let selectedItemsNew = selectedItems.filter((item) => item.id !== id);
+      storage.addToDStorage(selectedItemsNew);
+        duplicates();
+    // cartItems();
+      // Item successfully deleted
+      // console.log(`Item with "id" ${id} has been deleted.`);
+    } else {
+      // The item is not found
+      console.log(`Item with "id" ${id} is not present in the list.`);
+    }
   }
 }
+
 // services
 const servicesDataEl = (e) => {
   return `
@@ -107,8 +122,6 @@ const productsDataEl = (e) => {
 
 if (productsData.products) {
   productsData.products.map((e) => {
-    console.log(e.image);
-
     products?.insertAdjacentHTML("beforeend", productsDataEl(e));
   });
 } else {
@@ -116,7 +129,7 @@ if (productsData.products) {
 }
 // do not move this to any place
 const productsBtn = document.querySelectorAll(".productsBtn");
-// Store the cart items in an array
+// Store the cart items in the array
 const cartItemsArray = [];
 productsBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -126,9 +139,37 @@ productsBtn.forEach((btn) => {
       // Add the product to the cart items array
       cartItemsArray.push(product);
       storage.addToDStorage(cartItemsArray);
+
       cartItemsArray.forEach((element) => {
         tbody?.insertAdjacentHTML("beforeend", cartItem(element));
       });
     }
   });
 });
+
+//
+// Remove duplicates from the selected items
+function duplicates() {
+  let selectedItems = storage.getStorage("product");
+  const uniqueItems = selectedItems.reduce((acc, currentItem) => {
+    const isDuplicate = acc.some((item) => item.id === currentItem.id);
+    if (!isDuplicate) {
+      acc.push(currentItem);
+      uniqueItem.push(currentItem);
+      // cartItems();
+      const itemInCart = document.querySelector(".item-in-cart");
+      itemInCart.textContent = uniqueItem.length;
+    }
+    return acc;
+  }, []);
+}
+// duplicates();
+// function cartItems() {
+//   // Display the number of unique items in the cart
+//   const itemInCart = document.querySelector(".item-in-cart");
+//   itemInCart.textContent = uniqueItem.length;
+// }
+// cartItems();
+
+// export { uniqueItem, cartItems };
+export { uniqueItem };

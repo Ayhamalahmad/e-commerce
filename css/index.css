@@ -1,0 +1,326 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  body {
+      background: #6D63FF;
+      background: conic-gradient(from 45deg, #6D63FF, #FFFFFF);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  /* Start  Container */
+  .container {
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      /*  */
+      /* height: 100vh; */
+
+
+  }
+
+  /*small*/
+  @media (max-width: 767px) {
+      .container {
+          width: 100%;
+          /* margin-top: 20px;
+          margin-bottom: 20px; */
+      }
+
+  }
+
+  @media (min-width: 768px) {
+      .container {
+          width: 750px;
+      }
+
+  }
+
+  /*Medium*/
+  @media (min-width: 992px) {
+      .container {
+          width: 750px;
+      }
+  }
+
+  /*Large*/
+  @media (min-width: 1200px) {
+      .container {
+          width: 1170px;
+      }
+  }
+
+  /* End  Container */
+  /*  */
+  .container .app {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 20px 10px;
+  }
+
+
+  @media (max-width:991px) {
+      .container .app {
+          flex-direction: column-reverse;
+
+      }
+  }
+
+  /*  */
+  /* Start image */
+  .container .app .image {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      gap: 20px;
+      align-items: center;
+  }
+
+  @media (max-width:991px) {
+      .container .app .image {
+          /* display: none; */
+      }
+  }
+
+
+  .container .image img {
+      max-width: 100%;
+  }
+
+  @media (max-width:991px) {
+      .container .app .image img {
+          display: none;
+      }
+  }
+
+  .container .image a {
+      color: #6C63FF;
+      transition: all .3s ease-in-out;
+  }
+
+  .container .image a:hover {
+      color: #ADA9BB;
+  }
+
+  /* End image */
+
+  /* Start Form */
+  .container .sign-up-form {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  @media (max-width:991px) {
+      .container .sign-up-form {
+        width: 80%;
+        /* text-align: center; */
+    
+
+      }
+  }
+
+  .container .sign-up-form div:not(.gander) {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .container .sign-up-form h1 {
+      color: #3F3D56;
+      text-align: center;
+  }
+
+
+
+  .container .sign-up-form div>i {
+      position: absolute;
+      top: 11px;
+      color: #3F3D56;
+  }
+
+  .container .sign-up-form div .password-show {
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      width: 31px;
+      padding: 4px;
+      height: 26px;
+      text-align: center;
+  }
+
+  .container .sign-up-form div input {
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 25px;
+  }
+
+  .container .sign-up-form div input.active {
+      border-bottom: 1px solid #B00003;
+
+  }
+
+  .container .sign-up-form div input.active::placeholder {
+      color: #B00003;
+  }
+
+  .container .sign-up-form div input:focus {
+      outline: none;
+  }
+
+  .container .sign-up-form div span:not(.cm) {
+      /* color: #B00003; */
+      /* display: none; */
+      visibility: hidden;
+  }
+  @media (max-width: 767px) {
+    .container .sign-up-form .email-massege{
+        display: none;
+    }
+    .container .sign-up-form .email-massege.active{
+        display: initial;
+    }
+    .container .sign-up-form .email,
+    .container .sign-up-form .password {
+        margin-bottom: 20px;
+    }
+    .container .sign-up-form div span.password-massege{
+        display: none;
+      }
+      .container .sign-up-form div span.password-massege.active{
+        display: initial;
+      }
+  }
+
+
+  .container .sign-up-form div span:not(.cm).active {
+      color: #B00003;
+      visibility: initial;
+      /* display: initial; */
+  }
+
+  .container .sign-up-form .con-password span {
+      display: none;
+  }
+
+  .container .sign-up-form .con-password span.matched {
+      color: #008B6D;
+      display: block;
+  }
+
+  .container .sign-up-form .con-password span.not-matched {
+      display: block;
+      color: #B00003;
+  }
+
+  .container .sign-up-form .gander {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+  @media (max-width: 576px) {
+    .container .sign-up-form .gander{
+        justify-content: center; 
+     }
+    
+  }
+  .container .sign-up-form .gander label {
+      cursor: pointer;
+      user-select: none;
+      padding: 0 10px;
+      text-transform: capitalize;
+  }
+
+  .container .sign-up-form .gander input {
+      accent-color: #3F3D56;
+  }
+
+  .container .sign-up-form .gander .female {
+      margin-right: 20px;
+  }
+@media (max-width: 576px) {
+    .container .sign-up-form .gander .gender-massege{
+        margin-top: 10px;
+    }
+}
+
+
+  .container .sign-up-form a {
+      text-decoration: none;
+      background-color: #6C63FF;
+      border: none;
+      color: white;
+      width: fit-content;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+  }
+  @media (max-width: 767px) {
+    .container .sign-up-form a{
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .container .sign-up-form a:hover {
+      background-color: #ADA9BB;
+      color: #FFFFFF;
+  }
+
+  .container .sign-up-form .sign-up.disabled {
+      background-color: #B00003;
+      cursor: not-allowed;
+  }
+
+  .container .sign-up-form .btn-massege {
+      display: flex;
+      flex-direction: row !important;
+      align-items: center;
+      gap: 10px;
+      /* justify-content: spa; */
+  }
+
+  @media (max-width:767px) {
+      .container .sign-up-form .btn-massege {
+          flex-direction: column !important;
+          /* align-items: start; */
+
+      }
+  }
+
+  .container .sign-up-form .button-massege {
+      visibility: hidden;
+
+      /* color: re; */
+  }
+
+  @media (max-width: 767px) {
+    .container .sign-up-form .button-massege{
+        margin-top: 20px;
+    }
+  }
+  .container .sign-up-form .button-massege.active {
+      visibility: initial;
+  }
+
+  /* End Form */

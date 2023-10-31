@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <title>sign up</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="app">
+        <div class="image">
+          <img src="imges/undraw_working_remotely_re_6b3a.svg" alt="" />
+          <a  href="signin.html">I'm Already a Member</a>
+        </div>
+        <form class="sign-up-form">
+          <h1>Sign Up</h1>
+          <div>
+            <i class="fas fa-user"></i>
+            <input class="full-name" type="text" placeholder="Full Name" />
+            <span class="name-massege">Please ensure it doesn't empty</span>
+          </div>
+          <div>
+            <i class="fas fa-at"></i>
+            <input class="user-name" type="text" placeholder="@User Name" />
+            <span class="user-massege">Use only lowercase letters for your username, within 3 to 16 characters.</span>
+          </div>
+          <div>
+            <i class="fas fa-envelope"></i>
+            <input class="email" type="text" placeholder="Email" />
+            <span class="email-massege">Please ensure that the email address you provide is valid and correctly formatted</span>
+          </div>
+
+          <div>
+            <i class="fas fa-lock"></i>
+              <i class="fas fa-eye-slash show password-show"></i>
+            <input class="password p-sh-handler" type="password" placeholder="Password" />
+            <span class="password-massege">
+              Make sure your password: - Is at least 8 characters long. - Has a
+              lowercase and an uppercase letter. - Includes a number (digit) and
+              a special symbol.
+            </span>
+          </div>
+          <div class="con-password">
+            <i class="fas fa-lock "></i>
+            <i class="fas fa-eye-slash show password-show"></i>
+            <input
+              class="cpassword p-sh-handler"
+              type="password"
+              placeholder="Confirm Password"
+            />
+            <span class="cm cpassword-massege-not-matched"><i class="fas fa-exclamation-circle"></i> not matched</span>
+            <span class="cm cpassword-massege-matched "><i class="fas fa-check-circle"></i> matched</span>
+          </div>
+          <div class="gander">
+            <input type="radio" id="female" name="gender" />
+            <label class="female" for="female">female</label>
+            <input type="radio" id="male" name="gender" />
+            <label for="male">male</label>
+            <span class="gender-massege">Please select a gender.</span>
+          </div>
+          <div class="btn-massege">
+            <a class="sign-up" href="signin.html">sign up</a>
+            <span class="button-massege">Please fill in all required fields with valid data.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="javascript/SignUp.js"></script>
+  </body>
+</html>
