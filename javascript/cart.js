@@ -10,7 +10,7 @@ const cartItem = (e) => {
       <img class="img-fluid" src="${e.image}" alt="" />
     </th>
     <td>${e.product_title}</td>
-    <td>${e.product_price}</td>
+    <td class="product_price">${e.product_price}</td>
     <td>
       <div
         class="increase-selected-items-decrease d-flex align-items-center"
@@ -30,7 +30,7 @@ const cartItem = (e) => {
         </div>
       </div>
     </td>
-    <td>$49.00</td>
+    <td >$<span class="total-item">49.00</span></td>
     <td><button id="${e.id}"  class="delete-item btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
   </tr>`;
 };
@@ -51,29 +51,53 @@ uniqueItems.forEach((element) => {
 let deleteItem = document.querySelectorAll(".delete-item");
 deleteItem.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-btn.parentElement.parentElement.remove();
-console.log(btn.id);
-storage.removeFromArray(btn.id);
+    btn.parentElement.parentElement.remove();
+    console.log(btn.id);
+    storage.removeFromArray(btn.id);
   });
 });
 // decrease  and increase
-// const inputs =document.querySelectorAll(".selected-items");
-const decreaseBtns =document.querySelectorAll(".decrease");
-const increaseBtns =document.querySelectorAll(".increase");
-// console.log(inputs);
-console.log(decreaseBtns);
-console.log(increaseBtns);
-decreaseBtns.forEach((btn)=>{
-    btn.addEventListener("click",(e)=>{
-        let input = btn.parentElement.parentElement.querySelector(".seleted-num .selected-items");
-        input.value = parseInt(input.value) + 1;
-    })
-})
-increaseBtns.forEach((btn)=>{
-    btn.addEventListener("click",(e)=>{
-        let input = btn.parentElement.parentElement.querySelector(".seleted-num .selected-items");
-        if(input.value > 1){
-          input.value = parseInt(input.value) - 1;
-        }
-    })
+const decreaseBtns = document.querySelectorAll(".decrease");
+const increaseBtns = document.querySelectorAll(".increase");
+function handleQuantityChange(action, input) {
+  let value = parseInt(input.value);
+  if (action === "increase" && value > 1) {
+    input.value = value - 1;
+  } else if (action === "decrease") {
+    input.value = value + 1;
+  }
+  handleTotal();
+}
+
+decreaseBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    let input = btn.parentElement.parentElement.querySelector(".seleted-num .selected-items");
+    handleQuantityChange("decrease", input);
+  });
+});
+
+increaseBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    let input = btn.parentElement.parentElement.querySelector(".seleted-num .selected-items");
+    handleQuantityChange("increase", input);
+  });
+});
+
+const totalItems = document.querySelectorAll(".total-item");
+const product_prices = document.querySelectorAll(".product_price");
+function handleTotal() {
+  product_prices.forEach((price,index) => {
+    let originalText = `${price.textContent}`;
+    let textWithoutCurrency = originalText.replace(/£/g, "");
+    let input = document.querySelectorAll(".selected-items")[index];
+    const total = input.value * Number(textWithoutCurrency);
+    totalItems[index].textContent=total;
+  });
+}
+
+let inputs = document.querySelectorAll(".selected-items");
+inputs.forEach((input)=>{
+  input.addEventListener("change",()=>{
+    handleTotal();
+  })
 })
