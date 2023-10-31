@@ -1,49 +1,53 @@
 @use "../helpes/variables" as *;
-#Popular-Items{
-    .container{
-        .popular-title-btns{
-            // display: flex;
-            .title{
-            }
-            .btns{
-            // background-color: red;    
-            // width: 20%;
-            .cBtn{
-                font-size: 30px;
-                border-width: 0;
-                color: #ccc;
-                transition: all .3s;
-                &:hover{
-                    color: black;
-                }
-             &:focus{
-                outline: none;
-                border: none;
-             }
-            }
-            }
+#Popular-Items {
+  .container {
+    .popular-title-btns {
+      // display: flex;
+      .title {
+      }
+      .btns {
+        // background-color: red;
+        // width: 20%;
+        .cBtn {
+          font-size: 30px;
+          border-width: 0;
+          color: #ccc;
+          transition: all 0.3s;
+          &:hover {
+            color: black;
+          }
+          &:focus {
+            outline: none;
+            border: none;
+          }
         }
-
-
-        // gallery
-        .gallery{
-            overflow-x: scroll;
-            &::-webkit-scrollbar{
-                display: none;
-            }
-            .wrappar{
-                // display: flex;
-                gap: 10px;
-                flex-wrap: nowrap;
-                .item{
-                    display: block;
-                    margin-right: 0;
-                    flex: 0 0 calc(100% / 3);
-                    img{
-                        width: 100%;
-                    }
-                }
-            }
-        }
+      }
     }
+
+    // gallery
+    .gallery {
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .wrappar {
+        gap: 10px;
+        flex-wrap: nowrap;
+        .item {
+          display: block;
+          margin-right: 0;
+          flex: 0 0 calc(100% / 3);
+          @media #{$maxSmall} {
+            flex: 0 0 calc(100% / 2);
+          }
+          @media #{$maxMobile} {
+            flex: 0 0 calc(100% / 1);
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }

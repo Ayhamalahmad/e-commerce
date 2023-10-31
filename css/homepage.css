@@ -218,6 +218,16 @@ a {
   margin-right: 0;
   flex: 0 0 33.3333333333%;
 }
+@media (max-width:991px) {
+  #Popular-Items .container .gallery .wrappar .item {
+    flex: 0 0 50%;
+  }
+}
+@media (max-width:767px) {
+  #Popular-Items .container .gallery .wrappar .item {
+    flex: 0 0 100%;
+  }
+}
 #Popular-Items .container .gallery .wrappar .item img {
   width: 100%;
 }

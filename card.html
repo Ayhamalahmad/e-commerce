@@ -18,7 +18,7 @@
 
     <title></title>
   </head>
-  <body>
+  <body id="cart-html">
     <!-- NavbarN -->
     <nav class="navbar navbar-expand-lg bg-white position-fixed z-3 w-100">
       <div class="container container-fluid gap-2 p-1">
@@ -130,6 +130,36 @@
               </tr>
             </thead>
             <tbody>
+<!-- 
+              <tr>
+                <th scope="row">
+                  <img class="img-fluid" src="imges/cloth_1.jpg" alt="" />
+                </th>
+                <td>Top Up T-Shirt</td>
+                <td>$49.00</td>
+                <td>
+                  <div
+                    class="increase-selected-items-decrease d-flex align-items-center"
+                  >
+                    <div class="">
+                      <button class="increase btn btn-secondary">-</button>
+                    </div>
+                    <div class="seleted-num">
+                      <input
+                        class="selected-items form-control"
+                        type="text"
+                        value="1"
+                      />
+                    </div>
+                    <div class="">
+                      <button class="decrease btn btn-secondary">+</button>
+                    </div>
+                  </div>
+                </td>
+                <td>$49.00</td>
+                <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+              </tr>
+
               <tr>
                 <th scope="row">
                   <img class="img-fluid" src="imges/cloth_1.jpg" alt="" />
@@ -185,35 +215,8 @@
                 </td>
                 <td>$49.00</td>
                 <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <img class="img-fluid" src="imges/cloth_1.jpg" alt="" />
-                </th>
-                <td>Top Up T-Shirt</td>
-                <td>$49.00</td>
-                <td>
-                  <div
-                    class="increase-selected-items-decrease d-flex align-items-center"
-                  >
-                    <div class="">
-                      <button class="increase btn btn-secondary">-</button>
-                    </div>
-                    <div class="seleted-num">
-                      <input
-                        class="selected-items form-control"
-                        type="text"
-                        value="1"
-                      />
-                    </div>
-                    <div class="">
-                      <button class="decrease btn btn-secondary">+</button>
-                    </div>
-                  </div>
-                </td>
-                <td>$49.00</td>
-                <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
-              </tr>
+              </tr> -->
+
             </tbody>
           </table>
         </div>
@@ -375,9 +378,8 @@
       </div>
     </footer>
     <!-- scripts -->
-    <!-- <script src="javascript/index.js" ></script> -->
-    <!-- <script src="javascript/Horizontal-scroll.js" ></script> -->
-    <script src="javascript/date.js"></script>
+    <script type="module" src="javascript/cart.js" ></script>
+    <script type="module" src="javascript/elementsHandler.js" ></script>
     <script src="javascript/bootstrap.bundle.js"></script>
     <script src="javascript/all.min.js"></script>
   </body>

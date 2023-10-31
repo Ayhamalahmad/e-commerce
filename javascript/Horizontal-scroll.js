@@ -13,4 +13,4 @@ nextBtn.addEventListener("click", (e) => {
   PopularIGallery.scrollLeft += PopularICarouselItem.offsetWidth + 10;
   console.log("scroll Left");
 });
-console.clear();
+// console.clear();
