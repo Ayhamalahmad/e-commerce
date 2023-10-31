@@ -22,3 +22,9 @@ a{
 //     background-color: red;
 //     color: white;
 // }
+button{
+    &.clicked{
+        pointer-events: none;
+        cursor: not-allowed !important;
+    }
+}

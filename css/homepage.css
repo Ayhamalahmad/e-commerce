@@ -15,6 +15,11 @@ a {
   padding: 100px 0 70px 0;
 }
 
+button.clicked {
+  pointer-events: none;
+  cursor: not-allowed !important;
+}
+
 .navbar .shopping-user-search {
   margin: unset;
   font-size: 20px;

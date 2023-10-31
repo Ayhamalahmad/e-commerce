@@ -1,8 +1,9 @@
-console.clear();
+// console.clear();
 import { servicesData, productsData } from "./data.js";
 // import { selectedItems } from "./cart.js";
 const features = document.querySelector(".features");
 const products = document.querySelector(".products");
+const wrappar = document.querySelector(".wrappar");
 const tbody = document.querySelector("tbody");
 let uniqueItem = [];
 const cartItem = (e) => {
@@ -60,8 +61,8 @@ export class storage {
       selectedItems.splice(indexToDelete, 1);
       let selectedItemsNew = selectedItems.filter((item) => item.id !== id);
       storage.addToDStorage(selectedItemsNew);
-        duplicates();
-    // cartItems();
+      duplicates();
+      // cartItems();
       // Item successfully deleted
       // console.log(`Item with "id" ${id} has been deleted.`);
     } else {
@@ -119,20 +120,50 @@ const productsDataEl = (e) => {
         </div>
   `;
 };
+// Popular Items
+const PopularItems = (e) => {
+  return `
+
+  <div class="item col-12 col-md-6 col-lg-4 px-2">
+          <div class="image position-relative">
+            <span class="badge position-absolute rounded-0">NEW</span>
+            <img
+              class="product-image w-100"
+              src="${e.image}"
+              alt="Product Image"
+            />
+          </div>
+          <div class="product-info mt-4 text text-center">
+            <h6 class="my-1 product-title">${e.product_title}</h6>
+            <p class="product-price mt-1">${e.product_price}</p>
+            <button id="${e.id}"
+              class="productsBtn btn btn py-3 btn-light border-1 border-black rounded-0 text-capitalize add-to-cart-btn"
+            >
+              <i class="me-2 fas fa-cart-plus"></i>add to cart
+            </button>
+          </div>
+        </div>
+  `;
+};
+//
 
 if (productsData.products) {
   productsData.products.map((e) => {
     products?.insertAdjacentHTML("beforeend", productsDataEl(e));
+    wrappar?.insertAdjacentHTML("beforeend", PopularItems(e));
   });
 } else {
   console.log("The servicesData.features property does not exist.");
 }
+const PopularIGallery = document.querySelector("#Popular-Items .gallery");
+const PopularICarouselItem = document.querySelector("#Popular-Items .item");
 // do not move this to any place
 const productsBtn = document.querySelectorAll(".productsBtn");
 // Store the cart items in the array
 const cartItemsArray = [];
 productsBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
+    e.target.classList.add("clicked");
     const productId = e.target.id;
     const product = productsData.products.find((e) => e.id === productId);
     if (product) {
@@ -163,13 +194,14 @@ function duplicates() {
     return acc;
   }, []);
 }
-// duplicates();
-// function cartItems() {
-//   // Display the number of unique items in the cart
-//   const itemInCart = document.querySelector(".item-in-cart");
-//   itemInCart.textContent = uniqueItem.length;
-// }
-// cartItems();
+duplicates();
+function cartItems() {
+  // Display the number of unique items in the cart
+  const itemInCart = document.querySelector(".item-in-cart");
+  itemInCart.textContent = uniqueItem.length;
+}
+cartItems();
 
 // export { uniqueItem, cartItems };
-export { uniqueItem };
+
+export { uniqueItem, PopularIGallery, PopularICarouselItem };

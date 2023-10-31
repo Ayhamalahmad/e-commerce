@@ -1,6 +1,6 @@
 // console.clear();
 // Import the storage module from the elementsHandler.js file
-import { storage,uniqueItem,cartItems } from "./elementsHandler.js";
+import { storage,uniqueItem } from "./elementsHandler.js";
 // Retrieve selected items from local storage
 // export let selectedItems = storage.getStorage("product");
 

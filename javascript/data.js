@@ -1,4 +1,4 @@
-console.clear();
+// console.clear();
 export  const servicesData = {
     features: [
       {
