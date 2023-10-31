@@ -65,8 +65,15 @@ console.log(decreaseBtns);
 console.log(increaseBtns);
 decreaseBtns.forEach((btn)=>{
     btn.addEventListener("click",(e)=>{
-        let input = btn.parentElement.previousElementElement;
-        console.log(input);
+        let input = btn.parentElement.parentElement.querySelector(".seleted-num .selected-items");
         input.value = parseInt(input.value) + 1;
+    })
+})
+increaseBtns.forEach((btn)=>{
+    btn.addEventListener("click",(e)=>{
+        let input = btn.parentElement.parentElement.querySelector(".seleted-num .selected-items");
+        if(input.value > 1){
+          input.value = parseInt(input.value) - 1;
+        }
     })
 })
