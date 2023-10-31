@@ -1,6 +1,5 @@
 // console.clear();
 import { servicesData, productsData } from "./data.js";
-// import { selectedItems } from "./cart.js";
 const features = document.querySelector(".features");
 const products = document.querySelector(".products");
 const wrappar = document.querySelector(".wrappar");
@@ -40,8 +39,6 @@ const cartItem = (e) => {
 // storage
 export class storage {
   static addToDStorage(product) {
-    // duplicates();
-    // cartItems();
     let storage = localStorage.setItem("product", JSON.stringify(product));
     return storage;
   }
@@ -54,20 +51,12 @@ export class storage {
   }
   static removeFromArray(id) {
     let selectedItems = storage.getStorage("product");
-    duplicates();
-    // cartItems();
     const indexToDelete = selectedItems.findIndex((item) => item.id === id);
     if (indexToDelete !== -1) {
       selectedItems.splice(indexToDelete, 1);
       let selectedItemsNew = selectedItems.filter((item) => item.id !== id);
       storage.addToDStorage(selectedItemsNew);
       duplicates();
-      // cartItems();
-      // Item successfully deleted
-      // console.log(`Item with "id" ${id} has been deleted.`);
-    } else {
-      // The item is not found
-      console.log(`Item with "id" ${id} is not present in the list.`);
     }
   }
 }
@@ -92,8 +81,6 @@ if (servicesData.features) {
   servicesData.features.map((e) => {
     features?.insertAdjacentHTML("beforeend", servicesDataEl(e));
   });
-} else {
-  console.log("The servicesData.features property does not exist.");
 }
 // products
 const productsDataEl = (e) => {
@@ -152,9 +139,7 @@ if (productsData.products) {
     products?.insertAdjacentHTML("beforeend", productsDataEl(e));
     wrappar?.insertAdjacentHTML("beforeend", PopularItems(e));
   });
-} else {
-  console.log("The servicesData.features property does not exist.");
-}
+} 
 const PopularIGallery = document.querySelector("#Popular-Items .gallery");
 const PopularICarouselItem = document.querySelector("#Popular-Items .item");
 // do not move this to any place
@@ -170,7 +155,6 @@ productsBtn.forEach((btn) => {
       // Add the product to the cart items array
       cartItemsArray.push(product);
       storage.addToDStorage(cartItemsArray);
-
       cartItemsArray.forEach((element) => {
         tbody?.insertAdjacentHTML("beforeend", cartItem(element));
       });
@@ -187,9 +171,6 @@ function duplicates() {
     if (!isDuplicate) {
       acc.push(currentItem);
       uniqueItem.push(currentItem);
-      // cartItems();
-      const itemInCart = document.querySelector(".item-in-cart");
-      itemInCart.textContent = uniqueItem.length;
     }
     return acc;
   }, []);
@@ -201,7 +182,4 @@ function cartItems() {
   itemInCart.textContent = uniqueItem.length;
 }
 cartItems();
-
-// export { uniqueItem, cartItems };
-
 export { uniqueItem, PopularIGallery, PopularICarouselItem };

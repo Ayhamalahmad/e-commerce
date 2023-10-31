@@ -1,9 +1,6 @@
 // console.clear();
 // Import the storage module from the elementsHandler.js file
 import { storage,uniqueItem } from "./elementsHandler.js";
-// Retrieve selected items from local storage
-// export let selectedItems = storage.getStorage("product");
-
 // Define a template for a cart item 
 const cartItem = (e) => {
   return `
@@ -38,17 +35,9 @@ const cartItem = (e) => {
 };
 // Get a reference to the table body element
 const tbody = document.querySelector("tbody");
-// Remove duplicates from the selected items
-// export const uniqueItems = selectedItems.reduce((acc, currentItem) => {
-//   const isDuplicate = acc.some((item) => item.id === currentItem.id);
-//   if (!isDuplicate) {
-//     acc.push(currentItem);
-//   }
-//   return acc;
-// }, []);
 // Insert cart items into the table
 uniqueItem.forEach((element) => {
-  console.log(element);
+  // console.log(element);
   tbody?.insertAdjacentHTML("beforeend", cartItem(element));
 });
 // Delete items from the cart
@@ -56,7 +45,7 @@ let deleteItem = document.querySelectorAll(".delete-item");
 deleteItem.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     btn.parentElement.parentElement.remove();
-    console.log(btn.id);
+    // console.log(btn.id);
     storage.removeFromArray(btn.id);
   });
 });
