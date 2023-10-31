@@ -1,4 +1,3 @@
-// console.clear();
 import { servicesData, productsData } from "./data.js";
 const features = document.querySelector(".features");
 const products = document.querySelector(".products");
@@ -56,7 +55,6 @@ export class storage {
       selectedItems.splice(indexToDelete, 1);
       let selectedItemsNew = selectedItems.filter((item) => item.id !== id);
       storage.addToDStorage(selectedItemsNew);
-      duplicates();
     }
   }
 }
@@ -139,7 +137,7 @@ if (productsData.products) {
     products?.insertAdjacentHTML("beforeend", productsDataEl(e));
     wrappar?.insertAdjacentHTML("beforeend", PopularItems(e));
   });
-} 
+}
 const PopularIGallery = document.querySelector("#Popular-Items .gallery");
 const PopularICarouselItem = document.querySelector("#Popular-Items .item");
 // do not move this to any place
@@ -155,13 +153,13 @@ productsBtn.forEach((btn) => {
       // Add the product to the cart items array
       cartItemsArray.push(product);
       storage.addToDStorage(cartItemsArray);
+
       cartItemsArray.forEach((element) => {
         tbody?.insertAdjacentHTML("beforeend", cartItem(element));
       });
     }
   });
 });
-
 //
 // Remove duplicates from the selected items
 function duplicates() {
@@ -174,6 +172,7 @@ function duplicates() {
     }
     return acc;
   }, []);
+  cartItems();
 }
 duplicates();
 function cartItems() {
@@ -181,5 +180,5 @@ function cartItems() {
   const itemInCart = document.querySelector(".item-in-cart");
   itemInCart.textContent = uniqueItem.length;
 }
-cartItems();
+// cartItems();
 export { uniqueItem, PopularIGallery, PopularICarouselItem };
