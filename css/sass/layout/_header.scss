@@ -1,19 +1,22 @@
 @use "../helpes/variables" as *;
 .navbar {
-  background: transparent !important;
-  transition: all .4s;
-  &.scrolled{
-    background: rgba(0, 0, 0, 0.2) !important;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.91);
-      backdrop-filter: blur(1rem);
-      z-index: -1 !important;
+  @media #{$minMedium} {
+    background: transparent !important;
+    transition: all .4s;
+    &.scrolled{
+      background: rgba(0, 0, 0, 0.2) !important;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.91);
+        backdrop-filter: blur(1rem);
+        z-index: -1 !important;
+      }
     }
   }
+ 
 
   .navbar-nav {
     li {

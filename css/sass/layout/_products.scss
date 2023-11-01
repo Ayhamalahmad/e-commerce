@@ -3,9 +3,20 @@
     // product
     .product {
       .image {
+        overflow: hidden;
+        &:hover{
+          img{
+            transform: scale(1.2);
+          transition: transform 0.5s;
+          
+          }
+        }
         .badge {
           background-color: red;
           padding: 5px 10px;
+         
+          
+          
           .product-image {
           }
         }
@@ -21,6 +32,21 @@
           color: #333;
         }
       }
+    }
+  }
+}
+.badge {
+  background-color: red;
+  padding: 5px 10px;
+  
+}
+.image {
+  overflow: hidden;
+  &:hover{
+    img{
+      transform: scale(1.2);
+    transition: transform 0.5s;
+    
     }
   }
 }
