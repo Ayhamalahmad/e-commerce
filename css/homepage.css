@@ -177,6 +177,31 @@ button.clicked {
   color: #b3b3b3;
 }
 
+#products #message {
+  background: cadetblue;
+  position: fixed;
+  z-index: 3;
+  padding: 10px;
+  right: 2px;
+  top: 94px;
+  color: white;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transition: all 0.5s;
+  transform: translateX(100%);
+  animation: showMessage 0.5s forwards;
+}
+#products #message.hidden {
+  display: none;
+}
+@keyframes showMessage {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 #products .container .product .image {
   overflow: hidden;
 }
@@ -200,6 +225,7 @@ button.clicked {
 .badge {
   background-color: red;
   padding: 5px 10px;
+  z-index: 1;
 }
 
 .image {

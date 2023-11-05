@@ -150,6 +150,7 @@ productsBtn.forEach((btn) => {
     const productId = e.target.id;
     const product = productsData.products.find((e) => e.id === productId);
     if (product) {
+      massegeHandler();
       // Add the product to the cart items array
       cartItemsArray.push(product);
       storage.addToDStorage(cartItemsArray);
@@ -181,4 +182,13 @@ function cartItems() {
   itemInCart.textContent = uniqueItem.length;
 }
 // cartItems();
+// show massege when the item added to the cart
+function massegeHandler() {
+  const message = document.getElementById("message");
+  // console.log(message);
+  message.classList.remove("hidden");
+  setTimeout(() => {
+    message.classList.add("hidden");
+  }, 2000);
+}
 export { uniqueItem, PopularIGallery, PopularICarouselItem };
